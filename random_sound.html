@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Random Sound Player</title>
+</head>
+
+<body>
+
+<!--Links to the sound files. Track A plays first and then a random file from the other three-->
+
+<audio id="Track_A" src="https://dictionary.cambridge.org/us/media/english/uk_pron/u/uko/ukora/ukorang001.mp3" preload="auto"></audio>
+<audio id="Track_1" src="https://dictionary.cambridge.org/us/media/english/uk_pron/u/ukj/ukjud/ukjudic014.mp3" preload="auto"></audio>
+<audio id="Track_2" src="https://dictionary.cambridge.org/us/media/english/uk_pron/u/ukt/uktec/uktechn024.mp3" preload="auto"></audio>
+<audio id="Track_3" src="https://dictionary.cambridge.org/us/media/english/uk_pron/u/ukm/ukmar/ukmargi030.mp3" preload="auto"></audio>
+
+<!--Button-->
+<a href="javascript:play_single_sound();">Play sound</a> 
+
+
+<!--script bit-->
+<script type="text/javascript">
+var track = ["Track_1", "Track_2", "Track_3"]; //array of tracks
+var rando = Math.floor((Math.random() * 3));		//random number
+
+
+function play_single_sound() {
+	document.getElementById('Track_A').play();  //play the first file when the button is clicked
+}
+ 
+
+ var audio = document.getElementById("Track_A");
+audio.addEventListener("ended", function() {
+    document.getElementById(track[rando]).play();  //play random file
+});
+ 
+</script>
+
+
+
+</body>
+</html>
